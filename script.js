@@ -3,47 +3,47 @@ const cardWrapper = document.querySelector(".card-wrapper");
 const model = [
   {
     image: "./Images/IMG 1.jpg",
-    name: "Periuta",
+    name: "Kit Baie Igiena Personala",
     price: "Pret: 300$",
   },
   {
     image: "./Images/IMG2.jpeg",
-    name: "Name 2",
+    name: "Papuci de plaja - Dama",
     price: "Pret: 50$",
   },
   {
     image: "./Images/IMG3.jpeg",
-    name: "Name 3",
+    name: "Birou Stahder",
     price: "Pret: 70$",
   },
   {
     image: "./Images/IMG4.jpeg",
-    name: "Name 4",
+    name: "Echipament pentru a incepe acasa",
     price: "Pret: 35$",
   },
   {
     image: "./Images/IMG5.jpeg",
-    name: "Name 5",
+    name: "Pack pentru avion ",
     price: "Pret: 256$",
   },
   {
     image: "./Images/IMG6.jpeg",
-    name: "Name 6",
+    name: "Smartwatches",
     price: "Pret: 39.99$",
   },
   {
     image: "./Images/IMG7.jpeg",
-    name: "Name 7",
+    name: "da-i viata camerei tale",
     price: "Pret: 24.99$",
   },
   {
     image: "./Images/IMG8.jpeg",
-    name: "Name 8",
+    name: "Unelte de ziua tatalui",
     price: "Pret: 194.99$",
   },
   {
     image: "./Images/IMG9.jpeg",
-    name: "Name 9",
+    name: "Cadou pentru femei",
     price: "Pret: 5$",
   },
 ];
@@ -52,6 +52,7 @@ for (let i = 0; i < model.length; i++) {
   const div = document.createElement("div");
   div.classList.add("card");
   const image = document.createElement("img");
+  image.classList.add("card-image");
   image.src = model[i].image;
   div.appendChild(image);
   cardWrapper.appendChild(div);

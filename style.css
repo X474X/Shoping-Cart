@@ -50,13 +50,14 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 50px;
+  padding-bottom: 100px;
 }
 
 .card {
   border-radius: 10px;
-
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 420px;
   width: 300px;
   padding: 15px;
@@ -83,4 +84,8 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.card-image {
+  height: 200px;
 }
