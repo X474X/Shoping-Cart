@@ -1,4 +1,12 @@
 const cardWrapper = document.querySelector(".card-wrapper");
+const circle = document.querySelector(".circle");
+const productNumber = document.querySelector(".cart-number");
+const cart = document.querySelector(".cart");
+const shoppingList = document.querySelector(".shopping-list");
+const close = document.querySelector(".close");
+const list = document.querySelector("ul");
+
+let listProduct = [];
 
 const model = [
   {
@@ -63,6 +71,39 @@ for (let i = 0; i < model.length; i++) {
   span.innerHTML = model[i].price;
   div.appendChild(span);
   const button = document.createElement("button");
+  button.addEventListener("click", () => {
+    const obj = {
+      productName: model[i].name,
+      productImage: model[i].image,
+    };
+    listProduct.push(obj);
+
+    circle.style.visibility = "visible";
+    productNumber.innerHTML = Number(productNumber.innerHTML) + 1;
+  });
+
   button.innerHTML = "Adauga in cos";
   div.appendChild(button);
 }
+
+cart.addEventListener("click", () => {
+  shoppingList.style.right = "0px";
+  for (let i = 0; i < listProduct.length; i++) {
+    const li = document.createElement("li");
+    const image = document.createElement("img");
+    const h4 = document.createElement("h4");
+    const span = document.createElement("span");
+
+    image.src = listProduct[i].productImage;
+    h4.innerHTML = listProduct[i].productName;
+    span.innerHTML = "✖";
+    li.appendChild(image);
+    li.appendChild(h4);
+    li.appendChild(span);
+    list.appendChild(li);
+  }
+});
+
+close.addEventListener("click", () => {
+  shoppingList.style.right = "-250px";
+});
