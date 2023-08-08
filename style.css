@@ -114,9 +114,9 @@ button {
 .shopping-list {
   background-color: bisque;
   height: 95vh;
-  width: 250px;
+  width: 280px;
   position: fixed;
-  right: -250px;
+  right: -280px;
   top: 68px;
   transition: all 1s;
   padding: 10px 10px 40px 10px;
@@ -144,6 +144,11 @@ li {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
+}
+
+li span {
+  cursor: pointer;
 }
 
 li img {

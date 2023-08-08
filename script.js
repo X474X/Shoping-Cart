@@ -5,6 +5,7 @@ const cart = document.querySelector(".cart");
 const shoppingList = document.querySelector(".shopping-list");
 const close = document.querySelector(".close");
 const list = document.querySelector("ul");
+const order = document.querySelector(".order");
 
 let listProduct = [];
 
@@ -72,11 +73,25 @@ for (let i = 0; i < model.length; i++) {
   div.appendChild(span);
   const button = document.createElement("button");
   button.addEventListener("click", () => {
-    const obj = {
-      productName: model[i].name,
-      productImage: model[i].image,
-    };
-    listProduct.push(obj);
+    const li = document.createElement("li");
+    const image = document.createElement("img");
+    const h4 = document.createElement("h4");
+    const span = document.createElement("span");
+    span.addEventListener("click", () => {
+      li.remove();
+      productNumber.innerHTML = Number(productNumber.innerHTML) - 1;
+      if (Number(productNumber.innerHTML) === 0) {
+        circle.style.visibility = "hidden";
+      }
+    });
+
+    image.src = model[i].image;
+    h4.innerHTML = model[i].name;
+    span.innerHTML = "✖";
+    li.appendChild(image);
+    li.appendChild(h4);
+    li.appendChild(span);
+    list.appendChild(li);
 
     circle.style.visibility = "visible";
     productNumber.innerHTML = Number(productNumber.innerHTML) + 1;
@@ -88,22 +103,12 @@ for (let i = 0; i < model.length; i++) {
 
 cart.addEventListener("click", () => {
   shoppingList.style.right = "0px";
-  for (let i = 0; i < listProduct.length; i++) {
-    const li = document.createElement("li");
-    const image = document.createElement("img");
-    const h4 = document.createElement("h4");
-    const span = document.createElement("span");
-
-    image.src = listProduct[i].productImage;
-    h4.innerHTML = listProduct[i].productName;
-    span.innerHTML = "✖";
-    li.appendChild(image);
-    li.appendChild(h4);
-    li.appendChild(span);
-    list.appendChild(li);
-  }
 });
 
 close.addEventListener("click", () => {
-  shoppingList.style.right = "-250px";
+  shoppingList.style.right = "-280px";
+});
+
+order.addEventListener("click", () => {
+  alert("Your order has been placed");
 });
